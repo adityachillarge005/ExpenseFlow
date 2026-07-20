@@ -1,19 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Expense</title>
-</head>
-<body>
-    <h1>Are you sure you want to delete this expense</h1>
-    <p>{{expense.title}}</p>
-    <p>{{expense.amount}}</p>
+{% extends 'base.html' %}
 
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-    <a href="{% url 'view_expense' %}">Cancel</a>
-</body>
-</html>
+{% block title %}Delete Expense - ExpenseFlow{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center fade-in">
+    <div class="col-12 col-md-8 col-lg-5">
+        <!-- Confirmation Card -->
+        <div class="card premium-card border-0 p-4 p-md-5 text-center">
+            <div class="rounded-circle bg-danger bg-opacity-10 text-danger p-3 d-inline-flex mb-4 mx-auto" style="width: 70px; height: 70px; align-items: center; justify-content: center;">
+                <i class="bi bi-exclamation-triangle-fill fs-2"></i>
+            </div>
+            
+            <h3 class="fw-bold mb-2">Delete Transaction?</h3>
+            <p class="text-muted mb-4">Are you sure you want to permanently delete this expense record? This action cannot be undone.</p>
+            
+            <!-- Expense details summary box -->
+            <div class="bg-body-tertiary rounded-3 p-3 mb-4 text-start border">
+                <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted small">Title:</span>
+                    <span class="fw-semibold text-body">{{ expense.title }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted small">Amount:</span>
+                    <span class="fw-bold text-danger">₹{{ expense.amount }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted small">Category:</span>
+                    <span class="badge category-badge badge-{{ expense.category }} bg-secondary bg-opacity-10 text-body">{{ expense.category }}</span>
+                </div>
+                {% if expense.date %}
+                <div class="d-flex justify-content-between">
+                    <span class="text-muted small">Date:</span>
+                    <span class="text-muted small">{{ expense.date|date:"d M, Y" }}</span>
+                </div>
+                {% endif %}
+            </div>
+            
+            <!-- Actions -->
+            <form method="POST" class="d-flex gap-3">
+                {% csrf_token %}
+                <a href="{% url 'view_expense' %}" class="btn btn-outline-secondary w-50 py-2.5">
+                    Cancel
+                </a>
+                <button type="submit" class="btn btn-danger w-50 py-2.5">
+                    Yes, Delete
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

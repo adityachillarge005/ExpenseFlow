@@ -1,23 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart expense tracker</title>
-</head>
-<body>
-    <h1>Welcome to Smart expense tracker</h1>
-    {% if user.is_authenticated %}
-        <a href="{% url 'add_expense' %}">Add Expense</a>
-        <a href="{% url 'view_expense' %}">View Expenses</a>
+{% extends 'base.html' %}
 
-        <form method="POST" action="{% url 'user_logout' %}">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
-    {% else %}
-        <a href="{% url 'user_login' %}">Login</a>
-        <a href="{% url 'register' %}">Register</a>
-    {% endif %}
-</body>
-</html>
+{% block title %}Welcome to ExpenseFlow{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center py-4 fade-in">
+    <div class="col-12 col-lg-10 text-center">
+        <!-- Hero Tag -->
+        <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-2 mb-3">
+            ✨ Smart Financial Management
+        </span>
+        
+        <!-- Hero Title -->
+        <h1 class="display-4 fw-bold mb-3 tracking-tight">
+            Take Control of Your <span class="text-primary">Finances</span>
+        </h1>
+        
+        <!-- Hero Description -->
+        <p class="lead text-muted mx-auto mb-5" style="max-width: 650px;">
+            ExpenseFlow is the easiest way to track, analyze, and manage your daily transactions with a beautiful, responsive, and secure interface.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
+            {% if user.is_authenticated %}
+                <a href="{% url 'view_expense' %}" class="btn btn-primary btn-lg shadow-sm px-4 py-3">
+                    <i class="bi bi-speedometer2 me-2"></i>Go to Dashboard
+                </a>
+                <a href="{% url 'add_expense' %}" class="btn btn-outline-primary btn-lg px-4 py-3">
+                    <i class="bi bi-plus-circle me-2"></i>Add New Expense
+                </a>
+            {% else %}
+                <a href="{% url 'register' %}" class="btn btn-primary btn-lg shadow-sm px-4 py-3">
+                    <i class="bi bi-rocket-takeoff me-2"></i>Get Started Free
+                </a>
+                <a href="{% url 'user_login' %}" class="btn btn-outline-primary btn-lg px-4 py-3">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                </a>
+            {% endif %}
+        </div>
+
+        <!-- Visual Mockup Card Grid -->
+        <div class="row g-4 mt-4 text-start">
+            <div class="col-12 col-md-4">
+                <div class="card premium-card border-0 p-4 h-100">
+                    <div class="rounded-3 bg-primary bg-opacity-10 p-2 d-inline-block mb-3" style="width: 42px; height: 42px;">
+                        <i class="bi bi-wallet2 text-primary fs-4 line-height-1"></i>
+                    </div>
+                    <h5 class="fw-semibold">Real-Time Tracking</h5>
+                    <p class="text-muted mb-0 small">Log your daily expenses instantly and categorize them to know exactly where your money goes.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card premium-card border-0 p-4 h-100">
+                    <div class="rounded-3 bg-success bg-opacity-10 p-2 d-inline-block mb-3" style="width: 42px; height: 42px;">
+                        <i class="bi bi-bar-chart-line text-success fs-4 line-height-1"></i>
+                    </div>
+                    <h5 class="fw-semibold">Category Summaries</h5>
+                    <p class="text-muted mb-0 small">Get beautiful summaries and metrics automatically compiled to identify spending habits.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card premium-card border-0 p-4 h-100">
+                    <div class="rounded-3 bg-warning bg-opacity-10 p-2 d-inline-block mb-3" style="width: 42px; height: 42px;">
+                        <i class="bi bi-moon-stars text-warning fs-4 line-height-1"></i>
+                    </div>
+                    <h5 class="fw-semibold">Adaptive UI</h5>
+                    <p class="text-muted mb-0 small">Toggle between Light and Dark mode dynamically. Rest your eyes during late-night reviews.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,19 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form method="POST">
-        {% csrf_token %}
+{% extends 'base.html' %}
 
-        {{form}}
+{% block title %}Sign In - ExpenseFlow{% endblock %}
 
-        <button type="submit">Login</button>
-
-    </form>
-</body>
-</html>
+{% block content %}
+<div class="row justify-content-center align-items-center py-4 fade-in">
+    <div class="col-12 col-md-8 col-lg-5">
+        <!-- Auth Card -->
+        <div class="card premium-card border-0 p-4 p-md-5">
+            <div class="text-center mb-4">
+                <a class="d-flex align-items-center justify-content-center text-decoration-none text-primary fs-3 fw-bold mb-3" href="{% url 'home' %}">
+                    <span class="me-2">💰</span>
+                    <span>ExpenseFlow</span>
+                </a>
+                <h3 class="fw-bold mb-1">Welcome back</h3>
+                <p class="text-muted small">Please enter your credentials to access your dashboard</p>
+            </div>
+            
+            <form method="POST" class="d-flex flex-column gap-1">
+                {% csrf_token %}
+                
+                <!-- Django form wrapper for styling fields -->
+                <div class="django-bootstrap-form">
+                    {{ form }}
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-lg w-100 mt-2 py-2.5">
+                    Sign In
+                </button>
+            </form>
+            
+            <div class="text-center mt-4 pt-2 border-top">
+                <span class="text-muted small">Don't have an account?</span>
+                <a href="{% url 'register' %}" class="small text-primary fw-medium text-decoration-none ms-1">
+                    Sign Up Free
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
