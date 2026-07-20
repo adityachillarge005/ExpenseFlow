@@ -42,7 +42,7 @@ A modern and intuitive expense tracking web application built with **Django** th
 
 ## 🏠 Home Page
 
-> ![Home Page](SS/)
+> ![Home Page](SS/Screenshot%202026-07-21%20001856.png)
 
 ---
 
