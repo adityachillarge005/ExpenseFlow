@@ -3,40 +3,40 @@
 
 /* CSS Variables */
 :root {
-    --primary-color: #0f62fe;
-    --primary-hover: #0043ce;
-    --bg-color: #f4f6f8;
-    --card-bg: rgba(255, 255, 255, 0.65);
-    --text-color: #161616;
-    --text-muted: #525252;
-    --border-color: rgba(0, 0, 0, 0.08);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
-    --shadow-md: 0 4px 30px rgba(0, 0, 0, 0.03);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.05);
-    --input-bg: rgba(255, 255, 255, 0.75);
-    --nav-bg: rgba(255, 255, 255, 0.75);
-    --danger-color: #da1e28;
-    --success-color: #198754;
-    --accent-bg: rgba(0, 0, 0, 0.03);
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-color: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    --input-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --danger-color: #ef4444;
+    --success-color: #10b981;
+    --accent-bg: #f1f5f9;
     --calendar-icon-filter: invert(0);
 }
 
 [data-bs-theme="dark"] {
-    --primary-color: #4589ff;
-    --primary-hover: #6ea2ff;
-    --bg-color: #0d1117;
-    --card-bg: rgba(22, 27, 34, 0.6);
-    --text-color: #f4f6f9;
-    --text-muted: #8b949e;
-    --border-color: rgba(255, 255, 255, 0.08);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 30px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.3);
-    --input-bg: rgba(13, 17, 23, 0.7);
-    --nav-bg: rgba(22, 27, 34, 0.7);
-    --danger-color: #fa4d56;
-    --success-color: #24a148;
-    --accent-bg: rgba(255, 255, 255, 0.03);
+    --primary-color: #3b82f6;
+    --primary-hover: #60a5fa;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -4px rgba(0, 0, 0, 0.35);
+    --input-bg: #0f172a;
+    --nav-bg: #1e293b;
+    --danger-color: #f87171;
+    --success-color: #34d399;
+    --accent-bg: #334155;
     --calendar-icon-filter: invert(1);
 }
 
@@ -44,12 +44,10 @@
 body {
     font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(15, 98, 254, 0.04) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(15, 98, 254, 0.02) 0px, transparent 50%);
-    background-attachment: fixed;
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -72,14 +70,13 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid var(--border-color);
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
 }
 
 .premium-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+    border-color: rgba(37, 99, 235, 0.25);
 }
 
 .premium-card-stat {
@@ -88,16 +85,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom transitions */
 .transition-all {
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
 }
 
 /* Nav Link Hover Lift */
 .navbar {
     background-color: var(--nav-bg) !important;
     border-bottom: 1px solid var(--border-color);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
     padding: 0.8rem 1rem;
 }
 
@@ -128,11 +123,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive Table custom styling */
 .table-container {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
 }
 
 .table {
@@ -142,20 +137,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .table th {
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-size: 0.725rem;
     letter-spacing: 0.5px;
-    background-color: var(--accent-bg) !important;
+    background-color: transparent !important;
     color: var(--text-muted) !important;
-    border-bottom: 2px solid var(--border-color) !important;
-    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 0.85rem 1rem;
 }
 
 .table td {
-    padding: 1rem 1.25rem;
+    padding: 1rem;
     vertical-align: middle;
     border-bottom: 1px solid var(--border-color) !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.01) !important;
+}
+
+[data-bs-theme="dark"] .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.015) !important;
 }
 
 .table-hover tbody tr:hover {
