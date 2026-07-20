@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart expense tracker</title>
+</head>
+<body>
+    <h1>Welcome to Smart expense tracker</h1>
+    {% if user.is_authenticated %}
+        <a href="{% url 'add_expense' %}">Add Expense</a>
+        <a href="{% url 'view_expense' %}">View Expenses</a>
+
+        <form method="POST" action="{% url 'user_logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'user_login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+</body>
+</html>

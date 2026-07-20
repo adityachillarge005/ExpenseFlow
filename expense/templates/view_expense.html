@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view expenses</title>
+</head>
+<body>
+   
+    <h1>Expense Records</h1> 
+    <form method="GET">
+        <input type="text" name="search" value="{{ search }}" placeholder="Search by title">
+        <button type="submit">search</button>
+    </form>
+    <h3>Total Expenses: ₹{{ total_expenses }}</h3>
+    <h3>Total Transaction :{{total_transaction}}</h3>
+    <h3>category Summary :</h3>
+
+<table border="1">
+    <tr>
+        <th>Category</th>
+        <th>Total</th>
+    </tr>
+
+    {% for item in category_summary %}
+    <tr>
+        <td>{{ item.category }}</td>
+        <td>₹{{ item.total }}</td>
+    </tr>
+    {% endfor %}
+</table>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>category</th>
+            <th>date</th>
+            <th>description</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{expense.title}}</td>
+            <td>{{expense.amount}}</td>
+            <td>{{expense.category}}</td>
+            <td>{{expense.date}}</td>
+            <td>{{expense.description}}</td>
+            <td>
+                <a href="{% url 'edit_expense' expense.id %}">Edit</a>
+            </td>
+            <td>
+                <a href="{%url 'delete_expense' expense.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add expense</title>
+</head>
+<body>
+    <h1>Add expenses</h1>
+    <form  method="post">
+        {% csrf_token %}
+        <label>Title</label><br>
+        <input type="text" placeholder="Enter title" name="title"><br><br>
+        <label>Amount</label><br>
+        <input type="number" placeholder="Enter amount" name="amount" ><br><br>
+        <label>Category</label><br>
+        <select name="category">
+            <option selected>Select</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Sports">Sports</option>
+        </select><br><br>
+        <label>Date</label><br>
+        <input type="date" name="date"><br><br>
+        <label>Description</label><br>
+        <input type="text" placeholder="Enter Description" name="description"></select><br><br>
+
+        <button type="submit">Add expense</button>
+    </form>
+    {% if messages %}
+        {% for message in messages %}
+            <p class="{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit expense</title>
+</head>
+<body>
+    <h1>Edit expense</h1>
+    <form  method="post">
+        {% csrf_token %}
+        <label>Title</label><br>
+        <input type="text" placeholder="Enter title" name="title" value="{{expense.title}}"><br><br>
+        <label>Amount</label><br>
+        <input type="number" placeholder="Enter amount" name="amount" value="{{expense.amount}}" ><br><br>
+        <label>Category</label><br>
+        <select name="category">
+            <option 
+            {% if expense.category == "Food"%}
+                selected
+                {% endif%}>
+                Food</option>
+            <option 
+            {% if expense.category == "Travel"%}
+                selected
+                {% endif%}
+                >Travel</option>
+            <option 
+            {% if expense.category == "Sports"%}
+                selected
+                {% endif%}
+                >Sports</option>
+        </select><br><br>
+        <label>Date</label><br>
+        <input type="date" name="date" value="{{expense.date|date:'Y-m-d'}}"><br><br>
+        <label>Description</label><br>
+        <input type="text" placeholder="Enter Description" name="description" value="{{expense.description}}"></select><br><br>
+
+        <button type="submit">Add expense</button>
+    </form>
+    <br>
+    <a href="/view-expense/">Existing Records</a>
+</body>
+</html>
