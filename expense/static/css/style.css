@@ -1,56 +1,59 @@
 /* Google Fonts import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 /* CSS Variables */
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --bg-color: #f8fafc;
+    --primary-color: #0066ff;
+    --primary-hover: #0052cc;
+    --bg-color: #ffffff;
     --card-bg: #ffffff;
-    --text-color: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
+    --text-color: #000000;
+    --text-muted: #71717a;
+    --border-color: #e4e4e7;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
     --input-bg: #ffffff;
     --nav-bg: #ffffff;
     --danger-color: #ef4444;
     --success-color: #10b981;
-    --accent-bg: #f1f5f9;
+    --accent-bg: #f4f4f5;
     --calendar-icon-filter: invert(0);
+    --btn-text-color: #ffffff;
 }
 
 [data-bs-theme="dark"] {
-    --primary-color: #3b82f6;
-    --primary-hover: #60a5fa;
-    --bg-color: #0f172a;
-    --card-bg: #1e293b;
-    --text-color: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-color: #334155;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -4px rgba(0, 0, 0, 0.35);
-    --input-bg: #0f172a;
-    --nav-bg: #1e293b;
-    --danger-color: #f87171;
-    --success-color: #34d399;
-    --accent-bg: #334155;
+    --primary-color: #00f0ff;
+    --primary-hover: #00c0cc;
+    --bg-color: #000000;
+    --card-bg: #09090b;
+    --text-color: #ffffff;
+    --text-muted: #a1a1aa;
+    --border-color: #27272a;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.8);
+    --input-bg: #09090b;
+    --nav-bg: #000000;
+    --danger-color: #ff4a4a;
+    --success-color: #00ff88;
+    --accent-bg: #18181b;
     --calendar-icon-filter: invert(1);
+    --btn-text-color: #000000;
 }
 
 /* Base resets & typography */
 body {
-    font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    letter-spacing: -0.01em;
 }
 
 /* App spacing and structure */
@@ -60,40 +63,40 @@ main {
 
 /* Typography styles */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-color);
+    letter-spacing: -0.02em;
 }
 
 /* Premium Card Styles */
 .premium-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+    border-radius: 0.375rem;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
 .premium-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(37, 99, 235, 0.25);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
 }
 
 .premium-card-stat {
-    border-left: 4px solid var(--primary-color);
+    border-left: 3px solid var(--primary-color);
 }
 
 /* Custom transitions */
 .transition-all {
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 /* Nav Link Hover Lift */
 .navbar {
     background-color: var(--nav-bg) !important;
     border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-    padding: 0.8rem 1rem;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    padding: 0.7rem 1rem;
 }
 
 .navbar-brand {
@@ -195,8 +198,8 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
     background-color: var(--input-bg);
     border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.3s ease;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease;
 }
 
 .django-bootstrap-form input:focus,
@@ -206,7 +209,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--input-bg);
     border-color: var(--primary-color);
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(15, 98, 254, 0.15);
+    box-shadow: 0 0 0 1px var(--primary-color);
 }
 
 /* Custom form inputs style (for add/edit template manual forms) */
@@ -220,8 +223,8 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
     background-color: var(--input-bg);
     border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.3s ease;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease;
 }
 
 .custom-form-input:focus {
@@ -229,7 +232,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--input-bg);
     border-color: var(--primary-color);
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(15, 98, 254, 0.15);
+    box-shadow: 0 0 0 1px var(--primary-color);
 }
 
 .django-bootstrap-form .helptext {
@@ -314,32 +317,32 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Category Badge styling */
 .category-badge {
-    padding: 0.35em 0.65em;
-    font-size: 0.75em;
-    font-weight: 600;
-    border-radius: 50rem;
+    padding: 0.25em 0.5em;
+    font-size: 0.7em;
+    font-weight: 500;
+    border-radius: 0.25rem;
 }
 
 .badge-Food {
-    background-color: rgba(25, 135, 84, 0.15) !important;
+    background-color: rgba(16, 185, 129, 0.1) !important;
     color: var(--success-color) !important;
 }
 
 .badge-Travel {
-    background-color: rgba(13, 110, 253, 0.15) !important;
+    background-color: rgba(59, 130, 246, 0.1) !important;
     color: var(--primary-color) !important;
 }
 
 .badge-Sports {
-    background-color: rgba(253, 126, 20, 0.15) !important;
+    background-color: rgba(245, 158, 11, 0.1) !important;
     color: #fd7e14 !important;
 }
 
 /* Progress bar customizations */
 .progress {
     background-color: var(--accent-bg);
-    height: 0.5rem;
-    border-radius: 0.25rem;
+    height: 4px;
+    border-radius: 0;
 }
 
 .progress-bar-Food {
@@ -360,7 +363,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Auth Cards & Layouts */
 .auth-bg {
-    background: linear-gradient(135deg, rgba(15, 98, 254, 0.05) 0%, rgba(13, 110, 253, 0.02) 100%);
+    background: var(--bg-color);
     min-height: 100vh;
 }
 
@@ -368,52 +371,58 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    color: var(--btn-text-color) !important;
     font-weight: 500;
     padding: 0.625rem 1.25rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
+    border-radius: 0.375rem;
+    transition: all 0.15s ease;
 }
 
 .btn-primary:hover, .btn-primary:focus {
     background-color: var(--primary-hover);
     border-color: var(--primary-hover);
-    box-shadow: 0 0 0 0.25rem rgba(15, 98, 254, 0.25);
+    color: var(--btn-text-color) !important;
+    box-shadow: 0 0 0 1px var(--primary-color);
 }
 
 .btn-outline-primary {
     color: var(--primary-color);
     border-color: var(--primary-color);
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.15s ease;
 }
 
 .btn-outline-primary:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    color: var(--btn-text-color) !important;
 }
 
 .btn-outline-danger {
     color: var(--danger-color);
     border-color: var(--danger-color);
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.15s ease;
 }
 
 .btn-outline-danger:hover {
     background-color: var(--danger-color);
     border-color: var(--danger-color);
+    color: #ffffff !important;
 }
 
 /* Theme Toggle Button custom style */
 #theme-toggle {
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.3rem;
+    height: 2.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 0.375rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 #theme-toggle:hover {
@@ -422,7 +431,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Premium Input Group for Search */
 .premium-input-group {
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
     overflow: hidden;
     border: 1px solid var(--border-color);
 }
@@ -443,10 +452,10 @@ h1, h2, h3, h4, h5, h6 {
 .premium-input-group .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    color: #ffffff;
+    color: var(--btn-text-color) !important;
     border-radius: 0;
     padding: 0 1.25rem;
-    transition: background-color 0.2s;
+    transition: background-color 0.15s ease;
 }
 
 .premium-input-group .btn-primary:hover {
