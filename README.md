@@ -6,11 +6,10 @@
 
 ## 📸 Interface Screenshots
 
-### Light Mode Dashboard
-![ExpenseFlow Light Mode Dashboard](expense/static/images/dashboard_light.png)
-
-### Dark Mode Dashboard
-![ExpenseFlow Dark Mode Dashboard](expense/static/images/dashboard_dark.png)
+![Dashboard View 1](SS/Screenshot%202026-07-21%20001856.png)
+![Dashboard View 2](SS/Screenshot%202026-07-21%20001937.png)
+![Dashboard View 3](SS/Screenshot%202026-07-21%20002048.png)
+![Dashboard View 4](SS/Screenshot%202026-07-21%20002135.png)
 
 ---
 
