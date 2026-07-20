@@ -18,6 +18,7 @@
     --danger-color: #da1e28;
     --success-color: #198754;
     --accent-bg: #f2f4f8;
+    --calendar-icon-filter: invert(0);
 }
 
 [data-bs-theme="dark"] {
@@ -36,6 +37,7 @@
     --danger-color: #fa4d56;
     --success-color: #24a148;
     --accent-bg: #21262d;
+    --calendar-icon-filter: invert(1);
 }
 
 /* Base resets & typography */
@@ -406,3 +408,62 @@ h1, h2, h3, h4, h5, h6 {
 #theme-toggle:hover {
     background-color: var(--accent-bg);
 }
+
+/* Premium Input Group for Search */
+.premium-input-group {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.premium-input-group .form-control {
+    border: none;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    padding: 0.625rem 1rem;
+}
+
+.premium-input-group .form-control:focus {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    box-shadow: none;
+}
+
+.premium-input-group .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 0;
+    padding: 0 1.25rem;
+    transition: background-color 0.2s;
+}
+
+.premium-input-group .btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+/* Calendar Date Input Premium Styling */
+input[type="date"] {
+    position: relative;
+    padding-right: 2.5rem; /* ensure spacing for indicator icon */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: transparent;
+    cursor: pointer;
+    filter: var(--calendar-icon-filter);
+    opacity: 0.65;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Firefox compatibility */
+input[type="date"]::-moz-calendar-picker-indicator {
+    filter: var(--calendar-icon-filter);
+}
+
