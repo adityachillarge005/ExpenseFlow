@@ -66,7 +66,7 @@ A modern and intuitive expense tracking web application built with **Django** th
 
 ## ➕ Add Expense
 
-> *(Add Screenshot Here)*
+> ![Add Expense](SS/Screenshot%202026-07-21%20001937.png)
 
 ---
 
