@@ -7,7 +7,18 @@ from .models import Expense
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login,logout
 from django.db.models import Sum
+import os
+import pickle
 
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "trained_models", "model.pkl")
+VECTORIZER_PATH = os.path.join(BASE_DIR, "trained_models", "vectorizer.pkl")
+with open(MODEL_PATH, "rb") as file:
+    model = pickle.load(file)
+
+with open(VECTORIZER_PATH, "rb") as file:
+    vectorizer = pickle.load(file)
 # Create your views here.
 def home(request):
     return render(request,"home.html")
@@ -32,8 +43,10 @@ def validate_expense(title, amount, category, date):
 def add_expense(request):
     if request.method == "POST":
         title = request.POST.get("title","").strip().title()
+        prediction  = model.predict(vectorizer.transform([title]))[0]
+        print(prediction)
         amount = request.POST.get("amount","")
-        category = request.POST.get("category","")
+        category = prediction
         date = request.POST.get("date","")
         description = request.POST.get("description","").strip()
         error = validate_expense(title, amount, category, date)
@@ -175,3 +188,4 @@ def user_logout(request):
         logout(request)
         return redirect("user_login")
     
+
