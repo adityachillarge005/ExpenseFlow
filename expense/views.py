@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
@@ -187,5 +187,29 @@ def user_logout(request):
     if request.method=="POST":
         logout(request)
         return redirect("user_login")
+
+
+def predict_category(request):
+    title = request.GET.get("title", "").strip()
+
+    prediction = model.predict(vectorizer.transform([title]))[0]
+
+    descriptions = {
+        "Food": f"Food purchase: {title}.",
+        "Transport": f"Transportation expense: {title}.",
+        "Entertainment": f"Entertainment expense: {title}.",
+        "Shopping": f"Shopping expense: {title}.",
+        "Bills": f"Bill payment: {title}.",
+    }
+
+    description = descriptions.get(
+        prediction,
+        f"Expense for {title}."
+    )
+
+    return JsonResponse({
+        "category": prediction,
+        "description": description
+    })
     
 

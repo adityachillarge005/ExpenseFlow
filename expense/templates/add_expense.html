@@ -26,7 +26,7 @@
                 <!-- Title Field -->
                 <div>
                     <label class="form-label fw-medium text-body small">Title</label>
-                    <input type="text" class="custom-form-input" placeholder="e.g., Grocery Shopping" name="title" required>
+                    <input type="text" class="custom-form-input" placeholder="e.g., Grocery Shopping" name="title" id="title" required>
                 </div>
                 
                 <!-- Amount Field -->
@@ -38,12 +38,12 @@
                 <!-- Category Field -->
                 <div>
                     <label class="form-label fw-medium text-body small">Category</label>
-                    <select name="category" class="custom-form-input" required>
-                        <option value="Select" selected>Select Category</option>
-                        <option value="Food">Food</option>
-                        <option value="Travel">Travel</option>
-                        <option value="Sports">Sports</option>
-                    </select>
+                    <input
+                        type="text"
+                        name="category"
+                        class="form-control"
+                        id="category"
+                    >
                 </div>
                 
                 <!-- Date Field -->
@@ -55,7 +55,7 @@
                 <!-- Description Field -->
                 <div>
                     <label class="form-label fw-medium text-body small">Description</label>
-                    <textarea class="custom-form-input" rows="3" placeholder="Add more details..." name="description"></textarea>
+                    <textarea class="custom-form-input" rows="3" placeholder="Add more details..." name="description"  id="description"></textarea>
                 </div>
                 
                 <!-- Submit Button -->
@@ -66,4 +66,33 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    console.log("Script Loaded");
+
+    const titleInput = document.getElementById("title");
+    const categoryInput = document.getElementById("category");
+    const descriptionInput = document.getElementById("description");
+
+    titleInput.addEventListener("blur", function () {
+        const title = titleInput.value;
+        if (title.trim() === "") {
+            return;
+        }
+
+        fetch(`/predict_category/?title=${title}`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                categoryInput.value = data.category;
+                descriptionInput.value = data.description;
+            })
+            .catch(function(error) {
+                console.error(error);
+            });
+    });
+</script>
 {% endblock %}
