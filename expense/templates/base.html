@@ -95,6 +95,26 @@
 
             // Set initial state of theme toggle icon
             updateToggleIcon(document.documentElement.getAttribute('data-bs-theme'));
+
+            // Auto-open calendar picker on click/focus and prevent keyboard typing
+            document.querySelectorAll('input[type="date"]').forEach(input => {
+                const openPicker = function() {
+                    if (typeof this.showPicker === 'function') {
+                        try {
+                            this.showPicker();
+                        } catch (e) {
+                            console.log("showPicker not supported in this context", e);
+                        }
+                    }
+                };
+                input.addEventListener('click', openPicker);
+                input.addEventListener('focus', openPicker);
+                input.addEventListener('keydown', function(e) {
+                    if (e.key !== 'Tab' && e.key !== 'Escape') {
+                        e.preventDefault();
+                    }
+                });
+            });
         });
     </script>
     {% block scripts %}
