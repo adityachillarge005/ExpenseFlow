@@ -1,23 +1,38 @@
 # 💰 ExpenseFlow
 
-A modern and intuitive expense tracking web application built with **Django** that helps users manage their daily expenses efficiently. ExpenseFlow provides secure user authentication, expense management, search functionality, dashboard analytics, and category-wise spending summaries in a clean and responsive interface.
+ExpenseFlow is a modern full-stack expense management web application built with **Django**. It enables users to securely manage their daily expenses, monitor spending, set monthly budgets, and gain insights through a clean and responsive dashboard.
 
 ---
 
 ## ✨ Features
 
-- 🔐 User Authentication (Register, Login & Logout)
-- ➕ Add New Expenses
-- ✏️ Edit Existing Expenses
-- 🗑️ Delete Expenses
-- 📋 View All Expenses
-- 🔍 Search Expenses by Title
-- 📊 Dashboard Overview
-  - Total Expenses
-  - Total Transactions
-  - Category-wise Expense Summary
-- 👤 User-specific Expense Management
-- 📱 Responsive & Modern UI
+### 🔐 Authentication
+- User Registration
+- Secure Login & Logout
+
+### 💳 Expense Management
+- Add Expenses
+- Edit Expenses
+- Delete Expenses
+- View All Expenses
+- Search Expenses by Title
+
+### 📊 Dashboard
+- Total Expenses
+- Total Transactions
+- Active Categories
+- Category-wise Expense Summary
+
+### 💰 Budget Management
+- Set Monthly Budget by Category
+- Track Amount Spent
+- Remaining Budget Calculation
+- Progress Bar with Budget Usage
+- Visual Budget Monitoring
+
+### 👤 User Features
+- User-specific Expense Management
+- Responsive & Modern UI
 
 ---
 
@@ -42,25 +57,35 @@ A modern and intuitive expense tracking web application built with **Django** th
 
 ## 🏠 Home Page
 
-> ![Home Page](SS/Screenshot%202026-07-21%20002135.png)
+![Home Page](SS/Screenshot%202026-07-21%20002135.png)
 
 ---
 
 ## 🔑 Login Page
 
-> ![Login Page](SS/Screenshot%202026-07-21%20002048.png)
+![Login Page](SS/Screenshot%202026-07-21%20002048.png)
 
 ---
 
 ## 📊 Dashboard
 
-> ![Dashboard](SS/Screenshot%202026-07-21%20001856.png)
+![Dashboard](SS/dashboard.png)
 
 ---
 
 ## ➕ Add Expense
 
-> ![Add Expense](SS/Screenshot%202026-07-21%20001937.png)
+![Add Expense](SS/Screenshot%202026-07-21%20001937.png)
+
+---
+
+## 💰 Monthly Budget
+
+> Add a screenshot after creating one.
+
+```md
+![Budget](SS/budget.png)
+```
 
 ---
 
@@ -69,7 +94,7 @@ A modern and intuitive expense tracking web application built with **Django** th
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ExpenseFlow.git
+git clone https://github.com/adityachillarge005/ExpenseFlow.git
 ```
 
 ### 2. Navigate into the Project
@@ -106,13 +131,19 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-### 6. Run the Development Server
+### 6. Create a Superuser (Optional)
+
+```bash
+python manage.py createsuperuser
+```
+
+### 7. Run the Development Server
 
 ```bash
 python manage.py runserver
 ```
 
-Open your browser and visit:
+Visit:
 
 ```
 http://127.0.0.1:8000/
@@ -125,28 +156,30 @@ http://127.0.0.1:8000/
 ```
 ExpenseFlow/
 │── expense/
-│── app1/
-│── templates/
+│── expense_tracker/
+│── ml/
+│── trained_models/
 │── static/
-│   ├── css/
-│   │   └── style.css
-│── db.sqlite3
+│── templates/
+│── media/
 │── manage.py
+│── db.sqlite3
 │── requirements.txt
 │── README.md
 ```
 
 ---
 
-## 📈 Future Enhancements
+## 🚀 Future Enhancements
 
-- 📅 Monthly Expense Reports
+- 🤖 AI-powered Expense Insights
 - 📊 Interactive Charts & Graphs
-- 💰 Budget Planning
+- 📈 Monthly & Yearly Reports
 - 📤 Export to CSV/PDF
 - 🌙 Dark Mode
-- 🔔 Expense Reminders
-- 📱 REST API Integration
+- 🔔 Email Budget Alerts
+- 📱 Django REST Framework API
+- 📲 Mobile Application
 
 ---
 
@@ -154,12 +187,11 @@ ExpenseFlow/
 
 Contributions are welcome!
 
-If you'd like to improve ExpenseFlow:
-
-1. Fork the repository
-2. Create a new branch
-3. Commit your changes
-4. Open a Pull Request
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Push the branch.
+5. Open a Pull Request.
 
 ---
 
@@ -173,4 +205,4 @@ This project is licensed under the MIT License.
 
 **Aditya**
 
-If you like this project, don't forget to ⭐ the repository!
+⭐ If you found this project useful, consider giving it a star on GitHub!
