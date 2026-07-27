@@ -13,9 +13,11 @@ y = data["category"]
 model = MultinomialNB()
 # print(type(model))
 model.fit(X,y) #Learn the relationship between X and y.
-with open("model.pkl","wb") as file:
+import os
+os.makedirs("../trained_models", exist_ok=True)
+with open("../trained_models/model.pkl","wb") as file:
     pickle.dump(model,file)
-with open("vectorizer.pkl","wb") as file:
+with open("../trained_models/vectorizer.pkl","wb") as file:
     pickle.dump(vectorizer,file)
 print("Model and vectorizer saved successfully!")
 print("Model trained succesfully")

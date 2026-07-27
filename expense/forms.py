@@ -8,4 +8,4 @@ class BudgetForm(forms.ModelForm):  #You're creating a form based on the Budget 
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["category"].empty_label = "Select Category"
+        self.fields["category"].choices = [("", "Select Category")] + list(self.fields["category"].choices)

@@ -3,7 +3,7 @@ from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
-from .models import Expense,Budget
+from .models import Expense,Budget,CATEGORY_CHOICES
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login,logout
 from django.db.models import Sum
@@ -47,7 +47,7 @@ def add_expense(request):
         prediction  = model.predict(vectorizer.transform([title]))[0]
         print(prediction)
         amount = request.POST.get("amount","")
-        category = prediction
+        category = request.POST.get("category", "").strip() or prediction
         date = request.POST.get("date","")
         description = request.POST.get("description","").strip()
         error = validate_expense(title, amount, category, date)
@@ -179,7 +179,8 @@ def edit_expense(request, id):
         request,
         "edit_expense.html",
         {
-            "expense": expense
+            "expense": expense,
+            "category_choices": CATEGORY_CHOICES,
         }
     )
             
@@ -240,7 +241,7 @@ def user_login(request):
 def user_logout(request):
     if request.method=="POST":
         logout(request)
-        return redirect("user_login")
+    return redirect("user_login")
 
 
 def predict_category(request):
@@ -254,6 +255,7 @@ def predict_category(request):
         "Entertainment": f"Entertainment expense: {title}.",
         "Shopping": f"Shopping expense: {title}.",
         "Bills": f"Bill payment: {title}.",
+        "Healthcare": f"Healthcare expense: {title}.",
     }
 
     description = descriptions.get(
@@ -265,8 +267,6 @@ def predict_category(request):
         "category": prediction,
         "description": description
     })
-    
-from datetime import datetime
 
 @login_required
 def set_budget(request):

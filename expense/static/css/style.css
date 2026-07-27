@@ -340,6 +340,41 @@ h1, h2, h3, h4, h5, h6 {
     color: #fd7e14 !important;
 }
 
+.badge-Transport {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    color: var(--primary-color) !important;
+}
+
+.badge-Shopping {
+    background-color: rgba(99, 102, 241, 0.1) !important;
+    color: #6366f1 !important;
+}
+
+.badge-Bills {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    color: var(--danger-color) !important;
+}
+
+.badge-Entertainment {
+    background-color: rgba(245, 158, 11, 0.1) !important;
+    color: #fd7e14 !important;
+}
+
+.badge-Healthcare {
+    background-color: rgba(20, 184, 166, 0.1) !important;
+    color: #14b8a6 !important;
+}
+
+.badge-Education {
+    background-color: rgba(236, 72, 153, 0.1) !important;
+    color: #ec4899 !important;
+}
+
+.badge-Other {
+    background-color: rgba(113, 113, 122, 0.1) !important;
+    color: var(--text-muted) !important;
+}
+
 /* Progress bar customizations */
 .progress {
     background-color: var(--accent-bg);

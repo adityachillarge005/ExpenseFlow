@@ -39,9 +39,9 @@
                 <div>
                     <label class="form-label fw-medium text-body small">Category</label>
                     <select name="category" class="custom-form-input" required>
-                        <option value="Food" {% if expense.category == "Food" %}selected{% endif %}>Food</option>
-                        <option value="Travel" {% if expense.category == "Travel" %}selected{% endif %}>Travel</option>
-                        <option value="Sports" {% if expense.category == "Sports" %}selected{% endif %}>Sports</option>
+                        {% for cat_val, cat_name in category_choices %}
+                            <option value="{{ cat_val }}" {% if expense.category == cat_val %}selected{% endif %}>{{ cat_name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 
