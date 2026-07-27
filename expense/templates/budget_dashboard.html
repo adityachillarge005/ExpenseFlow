@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget Dashboard</title>
+</head>
+<body>
+
+    <h1>Budget Dashboard</h1>
+    {% for item in budget_data %}
+        <p>Category : {{ item.category }}</p>
+        <p>monthly_limit : {{ item.monthly_limit }}</p>
+        <p>amount : {{ item.spent_amount }}</p>
+        <p>remaining : {{ item.remaining }}</p>
+        <p>percentage : {{ item.percentage|floatformat:2 }}%</p>
+        
+        <hr>
+    {% endfor %}
+</body>
+</html>

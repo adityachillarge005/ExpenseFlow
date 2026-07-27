@@ -10,4 +10,5 @@ urlpatterns = [
     path("login/",views.user_login,name = "user_login"),
     path("logout/",views.user_logout,name = "user_logout"),
     path("predict_category/",views.predict_category,name = "predict_category"),
+    path("set-budget/",views.set_budget,name = "set_budget"),
 ]
